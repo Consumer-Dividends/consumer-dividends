@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
   <title>Consumer Dividends</title>
   <meta
     name="description"
-    content="Consumer Dividends builds practical tools, datasets, rubrics, bots, and risk workflows that help people protect time, money, margin, and choice."
+    content="Consumer Dividends builds practical tools, bots, and risk workflows that help people protect time, money, margin, and choice."
   />
 
   <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -32,15 +31,8 @@
       --shadow: 0 22px 70px rgba(0,0,0,0.36);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -53,10 +45,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .wrap {
       width: min(var(--max), calc(100% - 32px));
@@ -108,13 +97,9 @@
       font-weight: 650;
     }
 
-    nav a:hover {
-      color: var(--text);
-    }
+    nav a:hover { color: var(--text); }
 
-    .hero {
-      padding: 94px 0 70px;
-    }
+    .hero { padding: 94px 0 70px; }
 
     .eyebrow {
       color: var(--accent2);
@@ -174,9 +159,7 @@
       color: #061016;
     }
 
-    section {
-      padding: 58px 0;
-    }
+    section { padding: 58px 0; }
 
     .section-head {
       display: flex;
@@ -199,7 +182,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
     }
 
@@ -213,8 +196,7 @@
 
     .card.featured {
       border-color: rgba(125,211,252,0.32);
-      background:
-        linear-gradient(180deg, rgba(125,211,252,0.11), rgba(255,255,255,0.027));
+      background: linear-gradient(180deg, rgba(125,211,252,0.11), rgba(255,255,255,0.027));
     }
 
     .card h3 {
@@ -265,62 +247,6 @@
       margin-bottom: 16px;
     }
 
-    .link {
-      color: var(--accent);
-      font-weight: 850;
-      font-size: 14px;
-    }
-
-    .link:hover {
-      color: var(--accent2);
-    }
-
-    .store-panel {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .big-panel {
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 32px;
-      background:
-        linear-gradient(135deg, rgba(125,211,252,0.13), rgba(167,243,208,0.08)),
-        var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .big-panel p {
-      color: var(--muted);
-      max-width: 680px;
-      margin: 10px 0 22px;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .mini-item {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .mini-item strong {
-      display: block;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
-
-    .mini-item span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
     .platforms {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -346,24 +272,11 @@
       background: var(--panel2);
     }
 
-    .dataset-grid,
-    .tier-grid,
     .pricing-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
     }
-
-    .dataset-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .tier-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.pricing-grid {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
 
     .hr-box {
       border: 1px solid rgba(253,230,138,0.28);
@@ -388,9 +301,7 @@
       background: rgba(255,255,255,0.045);
     }
 
-    .tier h3 {
-      margin-bottom: 6px;
-    }
+    .tier h3 { margin-bottom: 6px; }
 
     .tier p {
       font-size: 14px;
@@ -405,6 +316,12 @@
       margin-bottom: 12px;
     }
 
+    .per {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
     .tier ul {
       color: var(--muted);
       padding-left: 18px;
@@ -412,9 +329,7 @@
       margin-bottom: 18px;
     }
 
-    .tier li {
-      margin-bottom: 7px;
-    }
+    .tier li { margin-bottom: 7px; }
 
     footer {
       border-top: 1px solid var(--line);
@@ -432,23 +347,15 @@
     }
 
     @media (max-width: 900px) {
-      nav {
-        display: none;
-      }
+      nav { display: none; }
+      .hero { padding-top: 68px; }
 
-      .hero {
-        padding-top: 68px;
-      }
-
-      .section-head,
-      .store-panel {
-        grid-template-columns: 1fr;
-        display: grid;
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .grid,
-      .dataset-grid,
-      .tier-grid,
       .pricing-grid {
         grid-template-columns: 1fr;
       }
@@ -469,9 +376,6 @@
       </a>
 
       <nav>
-        <a href="#products">Products</a>
-        <a href="#store">Store</a>
-        <a href="#datasets">Datasets</a>
         <a href="#hr-risk">HR Risk</a>
         <a href="#divai-plans">DivAI Plans</a>
         <a href="#platforms">Platforms</a>
@@ -482,7 +386,7 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="eyebrow">Tools · datasets · bots · risk workflows</div>
+        <div class="eyebrow">Tools · bots · risk workflows</div>
         <h1>Tools that put leverage back in your hands.</h1>
         <p class="hero-copy">
           Consumer Dividends fights the quiet tax people pay when basic work eats their time,
@@ -492,91 +396,76 @@
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="https://consumerdiv.gumroad.com" target="_blank" rel="noopener">
-            Shop Gumroad
-          </a>
-          <a class="btn" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">
-            Open DivAI
-          </a>
-          <a class="btn" href="https://huggingface.co/CDividends" target="_blank" rel="noopener">
-            Hugging Face
-          </a>
+          <a class="btn primary" href="https://consumerdiv.gumroad.com" target="_blank" rel="noopener">Shop Gumroad</a>
+          <a class="btn" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">Open DivAI</a>
+          <a class="btn" href="https://huggingface.co/CDividends" target="_blank" rel="noopener">Hugging Face</a>
         </div>
       </div>
     </section>
 
     <section id="hr-risk">
-  <div class="wrap">
-    <div class="hr-box">
-      <div class="eyebrow">ClearCase HR</div>
-      <h2>Clarity for messy workplace situations.</h2>
-      <p>
-        ClearCase HR reviews disputes, complaints, policy concerns, and documentation gaps.
-        It organizes the facts, flags risk areas, and gives practical next steps before a
-        messy issue gets more expensive.
-      </p>
+      <div class="wrap">
+        <div class="hr-box">
+          <div class="eyebrow">ClearCase HR</div>
+          <h2>Clarity for messy workplace situations.</h2>
+          <p>
+            ClearCase HR reviews disputes, complaints, policy concerns, and documentation gaps.
+            It organizes the facts, flags risk areas, and gives practical next steps before a
+            messy issue gets more expensive.
+          </p>
 
-      <div class="pricing-grid">
+          <div class="pricing-grid">
+            <article class="tier">
+              <h3>ClearCase HR — Single Report</h3>
+              <div class="amount">$79</div>
+              <p>For one incident, complaint, dispute, or policy concern.</p>
+              <ul>
+                <li>One HR risk review</li>
+                <li>Structured issue summary</li>
+                <li>Risk and documentation notes</li>
+                <li>Useful for one-off cases</li>
+              </ul>
+              <a class="btn primary" href="https://buy.stripe.com/aFa28q91y9bKdZP8hn87K09" target="_blank" rel="noopener">Buy Single Report</a>
+            </article>
 
-        <article class="tier">
-          <h3>ClearCase HR — Single Report</h3>
-          <div class="amount">$79</div>
-          <p>For one incident, complaint, dispute, or policy concern.</p>
-          <ul>
-            <li>One HR risk review</li>
-            <li>Structured issue summary</li>
-            <li>Risk and documentation notes</li>
-            <li>Useful for one-off cases</li>
-          </ul>
-          <a class="btn primary" href="https://buy.stripe.com/aFa28q91y9bKdZP8hn87K09" target="_blank" rel="noopener">
-            Buy Single Report
-          </a>
-        </article>
+            <article class="tier">
+              <h3>ClearCase HR — 5 Report Pack</h3>
+              <div class="amount">$299</div>
+              <p>For consultants or teams handling several reviews.</p>
+              <ul>
+                <li>Five HR risk reviews</li>
+                <li>Lower cost per report</li>
+                <li>Good for recurring client work</li>
+                <li>Simple Stripe checkout</li>
+              </ul>
+              <a class="btn primary" href="https://buy.stripe.com/00w4gycdKcnW2h755b87K08" target="_blank" rel="noopener">Buy 5 Report Pack</a>
+            </article>
 
-        <article class="tier">
-          <h3>ClearCase HR — 5 Report Pack</h3>
-          <div class="amount">$299</div>
-          <p>For consultants or teams handling several reviews.</p>
-          <ul>
-            <li>Five HR risk reviews</li>
-            <li>Lower cost per report</li>
-            <li>Good for recurring client work</li>
-            <li>Simple Stripe checkout</li>
-          </ul>
-          <a class="btn primary" href="https://buy.stripe.com/00w4gycdKcnW2h755b87K08" target="_blank" rel="noopener">
-            Buy 5 Report Pack
-          </a>
-        </article>
+            <article class="tier">
+              <h3>ClearCase HR — Pro Monthly</h3>
+              <div class="amount">$349<span class="per">/mo</span></div>
+              <p>For frequent reviews, HR consultants, agencies, and active teams.</p>
+              <ul>
+                <li>Unlimited monthly HR risk reviews</li>
+                <li>Priority structured analysis</li>
+                <li>Best value for ongoing use</li>
+                <li>Cancel anytime through Stripe</li>
+              </ul>
+              <a class="btn primary" href="https://buy.stripe.com/dRm8wO1z6afOf3T55b87K07" target="_blank" rel="noopener">Start Pro Monthly</a>
+            </article>
 
-        <article class="tier">
-          <h3>ClearCase HR — Pro Monthly</h3>
-          <div class="amount">$349<span style="font-size:14px;color:var(--muted);font-weight:700;">/mo</span></div>
-          <p>For frequent reviews, HR consultants, agencies, and active teams.</p>
-          <ul>
-            <li>Unlimited monthly HR risk reviews</li>
-            <li>Priority structured analysis</li>
-            <li>Best value for ongoing use</li>
-            <li>Cancel anytime through Stripe</li>
-          </ul>
-          <a class="btn primary" href="https://buy.stripe.com/dRm8wO1z6afOf3T55b87K07" target="_blank" rel="noopener">
-            Start Pro Monthly
-          </a>
-        </article>
-
-        <article class="tier">
-          <h3>ClearCase HR: HR Risk Assessment — Agency</h3>
-          <div class="amount">$799<span style="font-size:14px;color:var(--muted);font-weight:700;">/mo</span></div>
-          <p>For agencies and high-volume HR workflows.</p>
-          <ul>
-            <li>High-volume HR risk processing</li>
-            <li>Agency-scale workflow support</li>
-            <li>Structured reporting outputs</li>
-            <li>Stripe subscription</li>
-          </ul>
-          <a class="btn primary" href="https://buy.stripe.com/7sY00i0v25Zy8Fv55b87K0a" target="_blank" rel="noopener">
-            Start Agency Plan
-          </a>
-        </article>
+            <article class="tier">
+              <h3>ClearCase HR: HR Risk Assessment — Agency</h3>
+              <div class="amount">$799<span class="per">/mo</span></div>
+              <p>For agencies and high-volume HR workflows.</p>
+              <ul>
+                <li>High-volume HR risk processing</li>
+                <li>Agency-scale workflow support</li>
+                <li>Structured reporting outputs</li>
+                <li>Stripe subscription</li>
+              </ul>
+              <a class="btn primary" href="https://buy.stripe.com/7sY00i0v25Zy8Fv55b87K0a" target="_blank" rel="noopener">Start Agency Plan</a>
+            </article>
           </div>
         </div>
       </div>
@@ -604,9 +493,7 @@
             <h3>DivAI AI Tier</h3>
             <p>Base monthly plan for DivAI.</p>
             <div class="price">$9.99/month</div>
-            <a class="btn primary" href="https://buy.stripe.com/6oU4gya5C87GcVLfJP87K05" target="_blank" rel="noopener">
-              Subscribe
-            </a>
+            <a class="btn primary" href="https://buy.stripe.com/6oU4gya5C87GcVLfJP87K05" target="_blank" rel="noopener">Subscribe</a>
           </article>
 
           <article class="card">
@@ -617,9 +504,7 @@
             <h3>DivAI AI Tier + Full Package</h3>
             <p>AI Tier plus moderation, analytics, and onboarding.</p>
             <div class="price">$21.96/month</div>
-            <a class="btn primary" href="https://buy.stripe.com/14AeVc2Da9bK9Jz7dj87K06" target="_blank" rel="noopener">
-              Subscribe
-            </a>
+            <a class="btn primary" href="https://buy.stripe.com/14AeVc2Da9bK9Jz7dj87K06" target="_blank" rel="noopener">Subscribe</a>
           </article>
 
           <article class="card">
@@ -630,9 +515,7 @@
             <h3>DivAI Super Tier</h3>
             <p>Higher tier for more active servers.</p>
             <div class="price">$24.99/month</div>
-            <a class="btn primary" href="https://buy.stripe.com/14A7sK6Tq1Ji2h7gNT87K04" target="_blank" rel="noopener">
-              Subscribe
-            </a>
+            <a class="btn primary" href="https://buy.stripe.com/14A7sK6Tq1Ji2h7gNT87K04" target="_blank" rel="noopener">Subscribe</a>
           </article>
 
           <article class="card">
@@ -643,9 +526,7 @@
             <h3>DivAI Super Tier + Full Package</h3>
             <p>Super Tier plus moderation, analytics, and onboarding.</p>
             <div class="price">$36.96/month</div>
-            <a class="btn primary" href="https://buy.stripe.com/3cI4gy5PmfA82h741787K03" target="_blank" rel="noopener">
-              Subscribe
-            </a>
+            <a class="btn primary" href="https://buy.stripe.com/3cI4gy5PmfA82h741787K03" target="_blank" rel="noopener">Subscribe</a>
           </article>
 
           <article class="card featured">
@@ -655,9 +536,7 @@
             <h3>DivAI Bot Listing</h3>
             <p>View the public DivAI bot page on Top.gg.</p>
             <div class="price">Public listing</div>
-            <a class="btn" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">
-              Open Top.gg
-            </a>
+            <a class="btn" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">Open Top.gg</a>
           </article>
         </div>
       </div>
@@ -670,9 +549,7 @@
             <div class="eyebrow">Platforms</div>
             <h2>Everything connected.</h2>
           </div>
-          <p>
-            Live links only. Gumroad and Hugging Face are the main public hubs.
-          </p>
+          <p>Live links only. Gumroad and Hugging Face are the main public hubs.</p>
         </div>
 
         <div class="platforms">
@@ -690,9 +567,8 @@
   <footer>
     <div class="wrap footer-inner">
       <span>© 2026 Consumer Dividends</span>
-      <span>Tools · datasets · bots · rubrics · HR risk workflows</span>
+      <span>Tools · bots · HR risk workflows</span>
     </div>
   </footer>
 </body>
 </html>
-```
