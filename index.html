@@ -335,22 +335,6 @@
 
     .hr-box > p { color: var(--muted); margin: 10px 0 22px; max-width: 760px; }
 
-    .coming-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(253,230,138,0.1);
-      border: 1px solid rgba(253,230,138,0.3);
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-
     /* ── TRIAL LAYOUT ── */
     .trial-layout {
       display: grid;
@@ -531,32 +515,68 @@
       flex-shrink: 0; margin-top: 1px;
     }
 
-    /* ── NOTIFY ── */
-    .notify-row {
+    /* ── HR PURCHASE TIERS ── */
+    .hr-purchase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hr-tier {
+      border: 1px solid rgba(253,230,138,0.2);
+      border-radius: 16px;
+      padding: 20px;
+      background: rgba(253,230,138,0.04);
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      align-items: center;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .notify-input {
-      flex: 1;
-      min-width: 200px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(253,230,138,0.25);
-      border-radius: 999px;
-      padding: 11px 18px;
-      font-size: 14px;
+    .hr-tier.featured-tier {
+      border-color: rgba(253,230,138,0.45);
+      background: rgba(253,230,138,0.08);
+    }
+
+    .hr-tier-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .hr-tier h4 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: var(--text);
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.15s;
     }
 
-    .notify-input:focus { border-color: rgba(253,230,138,0.5); }
-    .notify-input::placeholder { color: var(--muted); opacity: 0.6; }
-    .notify-confirm { font-size: 13px; color: var(--accent2); font-weight: 700; display: none; margin-top: 10px; }
+    .hr-tier .hr-price {
+      color: var(--gold);
+      font-weight: 950;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .hr-tier .hr-price span {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .hr-tier ul {
+      color: var(--muted);
+      padding-left: 16px;
+      font-size: 13px;
+      flex: 1;
+    }
+
+    .hr-tier li { margin-bottom: 5px; }
 
     /* ── FOOTER ── */
     footer {
@@ -578,6 +598,11 @@
       .platforms { grid-template-columns: repeat(2, 1fr); }
       .trial-layout { grid-template-columns: 1fr; }
       .field-row { grid-template-columns: 1fr; }
+      .hr-purchase-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .hr-purchase-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -611,7 +636,7 @@
           another bloated dependency.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://consumerdiv.gumroad.com" target="_blank" rel="noopener">Shop Gumroad</a>
+          <a class="btn primary" href="/catalog">Browse Catalog</a>
           <a class="btn" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">Open DivAI</a>
           <a class="btn" href="https://huggingface.co/CDividends" target="_blank" rel="noopener">Hugging Face</a>
         </div>
@@ -708,7 +733,7 @@
       </div>
     </section>
 
-    <!-- ══ CLEARCASE HR — COMING SOON + TRIAL ══ -->
+    <!-- ══ CLEARCASE HR — LIVE ══ -->
     <section id="hr-risk">
       <div class="wrap">
         <div class="section-head">
@@ -718,17 +743,18 @@
           </div>
           <p>
             Structured HR risk review for disputes, complaints, and documentation gaps.
-            Coming soon — try the early build below.
+            You put in the facts. We organize them by risk factor.
           </p>
         </div>
 
         <div class="hr-box">
-          <div class="coming-badge">⬡ Coming Soon — Early Access</div>
+          <div class="live-badge"><span class="live-dot"></span> Live — v0.5 Early Access</div>
           <h2 style="font-size:clamp(20px,2.8vw,30px); margin-bottom:10px;">HR risk review without the consultant invoice.</h2>
           <p>
             ClearCase HR organizes the facts, flags risk areas, and gives practical next steps before a messy
             workplace issue gets more expensive. Built for small businesses and fractional HR consultants
-            who can't justify a $1,000+ review for every incident. This is not legal advice.
+            who can't justify a $1,000+ review for every incident. Not legal advice —
+            a structured risk inventory.
           </p>
 
           <!-- TRIAL FORM + OUTPUT -->
@@ -892,19 +918,64 @@
 
           </div><!-- /trial-layout -->
 
-          <!-- WAITLIST -->
-          <div style="margin-top:28px; padding-top:24px; border-top:1px solid var(--line);">
-            <p style="font-size:15px; font-weight:700; margin-bottom:6px;">Get notified at full launch.</p>
-            <p style="color:var(--muted); font-size:14px;">
-              Full plans — Single Report ($79), 5-Pack ($299), Pro Monthly ($349), Agency ($799/mo) —
-              go live with the complete fulfillment pipeline. Leave your email and we'll reach out before launch.
-            </p>
-            <div class="notify-row">
-              <input class="notify-input" type="email" id="notify-email" placeholder="your@email.com" />
-              <button class="btn gold-btn" onclick="handleNotify()">Notify me at launch →</button>
+          <!-- PURCHASE TIERS -->
+          <div class="hr-purchase-grid">
+            <div class="hr-tier">
+              <div class="hr-tier-label">Single Report</div>
+              <h4>One-Time Review</h4>
+              <div class="hr-price">$79<span></span></div>
+              <ul>
+                <li>1 full risk report</li>
+                <li>All 18 input fields</li>
+                <li>HTML + PDF output</li>
+                <li>Email delivery</li>
+              </ul>
+              <a class="btn gold-btn" href="https://buy.stripe.com/clearcasehr-single" target="_blank" rel="noopener" style="font-size:13px;">Buy — $79</a>
             </div>
-            <p class="notify-confirm" id="notify-confirm">✓ You're on the list. We'll be in touch before launch.</p>
+
+            <div class="hr-tier featured-tier">
+              <div class="hr-tier-label">Most Popular</div>
+              <h4>5-Report Pack</h4>
+              <div class="hr-price">$299<span></span></div>
+              <ul>
+                <li>5 full risk reports</li>
+                <li>90-day access window</li>
+                <li>All features included</li>
+                <li>Email delivery</li>
+              </ul>
+              <a class="btn gold-btn" href="https://buy.stripe.com/clearcasehr-pack5" target="_blank" rel="noopener" style="font-size:13px;">Buy — $299</a>
+            </div>
+
+            <div class="hr-tier">
+              <div class="hr-tier-label">Pro Monthly</div>
+              <h4>Pro</h4>
+              <div class="hr-price">$349<span>/mo</span></div>
+              <ul>
+                <li>20 reports/month</li>
+                <li>Case history panel</li>
+                <li>Priority support</li>
+                <li>Renews monthly</li>
+              </ul>
+              <a class="btn gold-btn" href="https://buy.stripe.com/clearcasehr-pro" target="_blank" rel="noopener" style="font-size:13px;">Subscribe — $349/mo</a>
+            </div>
+
+            <div class="hr-tier">
+              <div class="hr-tier-label">Agency</div>
+              <h4>Agency Unlimited</h4>
+              <div class="hr-price">$799<span>/mo</span></div>
+              <ul>
+                <li>Unlimited reports</li>
+                <li>Full case history</li>
+                <li>Multi-client use</li>
+                <li>Renews monthly</li>
+              </ul>
+              <a class="btn gold-btn" href="https://buy.stripe.com/clearcasehr-agency" target="_blank" rel="noopener" style="font-size:13px;">Subscribe — $799/mo</a>
+            </div>
           </div>
+
+          <p style="font-size:12px; color:var(--muted); margin-top:16px; opacity:0.7;">
+            Access code delivered by email immediately after purchase. Use it at <a href="https://clearcasehr.up.railway.app" style="color:var(--accent);">clearcasehr.up.railway.app</a> or in the trial form above.
+          </p>
 
         </div><!-- /hr-box -->
       </div>
@@ -922,7 +993,7 @@
         </div>
 
         <div class="platforms">
-          <a class="platform" href="https://consumerdiv.gumroad.com" target="_blank" rel="noopener">Gumroad</a>
+          <a class="platform" href="/catalog">Catalog</a>
           <a class="platform" href="https://top.gg/bot/1495711192780374116?s=0bc053e22c97c" target="_blank" rel="noopener">DivAI<br>Top.gg</a>
           <a class="platform" href="https://huggingface.co/CDividends" target="_blank" rel="noopener">Hugging Face</a>
           <a class="platform" href="https://www.linkedin.com/in/sawinskia-cdividends" target="_blank" rel="noopener">LinkedIn</a>
@@ -944,10 +1015,9 @@
   <script>
     /* ─────────────────────────────────────────────
        CLEARCASE HR — TRIAL LOGIC
-       API_BASE: empty = same origin (Flask serves this file).
-       Change to your domain if hosted separately.
+       API routes through Railway backend.
     ───────────────────────────────────────────── */
-    const API_BASE = "";
+    const API_BASE = "https://clearcasehr.up.railway.app";
 
     function getFields() {
       return {
@@ -1118,8 +1188,8 @@
       document.getElementById("cc-error").style.display = "none";
 
       const previewBanner = isPreview
-        ? `<div style="background:rgba(253,230,138,0.07);border:1px solid rgba(253,230,138,0.18);border-radius:10px;padding:9px 13px;font-size:12px;color:var(--gold);margin-bottom:14px;">
-             ⚠ Preview — backend not connected. Scores are estimated client-side for demonstration.
+        ? `<div style="background:rgba(167,243,208,0.07);border:1px solid rgba(167,243,208,0.18);border-radius:10px;padding:9px 13px;font-size:12px;color:var(--accent2);margin-bottom:14px;">
+             ℹ Preview mode — scores are estimated client-side. The full engine runs on submission.
            </div>`
         : "";
 
@@ -1192,16 +1262,6 @@
       document.getElementById("cc-loading").style.display = "none";
       document.getElementById("cc-placeholder").style.display = "flex";
       document.getElementById("cc-output-sub").textContent = "Your structured risk report will appear here after submission.";
-    }
-
-    /* ── NOTIFY ── */
-    function handleNotify() {
-      const email = document.getElementById("notify-email").value.trim();
-      if (!email || !email.includes("@")) return;
-      document.getElementById("notify-email").value = "";
-      document.getElementById("notify-confirm").style.display = "block";
-      // TODO: wire to your email list or a POST /notify endpoint
-      console.log("Waitlist signup:", email);
     }
   </script>
 </body>
